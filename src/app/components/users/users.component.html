@@ -1,0 +1,78 @@
+<!-- <div>
+<h1>Users List</h1>
+
+<div>{{users | json}}</div>
+
+
+</div> -->
+
+
+
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>Name </th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>Status</th>
+    </tr>
+        <tr *ngFor="let user of users;let i=index;">
+          <td>{{user.firstName}} {{user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.role.label}}</td>
+          <td>Active</td>
+          <td>
+            <button md-icon-button color="accent" (click)="edit()"><md-icon>edit</md-icon></button>
+            <button md-icon-button color="accent" (click)="delete(user)"><md-icon>delete</md-icon></button>
+          </td>
+        </tr>
+  </table>
+</div>
+
+<!-- <div *ngFor="let user of users;let i=index;">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="user.id == users[i].id">
+      <div fxLayout="row">
+        <div fxFlex="100" fxFlex.gt-md="76" fxHide.lg="true" fxHide.gt-md="false" fxFlexOffset.gt-md="30" fxFlexOffset.gt-sm="35"
+          fxFlexOffset="1">
+          <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="10px" fxLayoutAlign="end">
+            <md-input-container fxFlex>
+              <input mdInput name="firstName" [disabled]="isLoading" [(ngModel)]="selectedUser.firstName" placeholder="First Name" required>
+            </md-input-container>
+            <md-input-container fxFlex>
+              <input mdInput name="lastName" [disabled]="isLoading" [(ngModel)]="selectedUser.lastName" placeholder="Last Name" required>
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+    </form>
+
+</div> -->
+
+
+<!-- <div *ngFor="let user of users;let i=index;">
+  <md-card>
+    <md-card-content>
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex="15">
+        </div>
+        <div class="pointer" (click)="!isAddMode ? onSelectLab(user) : ''" fxLayout="column" fxFlex>
+          <md-card-title>{{user.firstName}} {{user.lastname}}</md-card-title>
+          <div >
+            <span>{{user.phone}}</span>
+            <span>{{user.email}}</span>
+
+          </div>
+        </div>
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="start start">
+          <button md-icon-button (click)="openDialog(user)" [disabled]="isAddMode">
+          <button md-icon-button color="accent" [routerLink]="['/users',user.id,'edit']"><md-icon>edit</md-icon></button>
+          <button md-icon-button color="accent" (click)="delete(user)"><md-icon>delete</md-icon></button>
+
+        </button>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>  -->

@@ -1,0 +1,28 @@
+<div div fxLayout="row" fxFlex='100%'>
+  <div fxFlex='90' fxLayoutAlign="start start" >
+    <!-- <button md-button [mdMenuTriggerFor]="menu">Menu</button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [routerLink]="['/users']">Users List</button>
+      <button md-menu-item [routerLink]="['/new-user']">Add New users</button>
+    </md-menu> -->
+    <md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <button md-menu-item [routerLink]="['/users']">Users List</button>
+    <button md-menu-item [routerLink]="['/new-user']">Add New users</button>
+  </md-sidenav>
+
+  <div class="example-sidenav-content">
+    <button type="button" md-raised-button color="accent" (click)="sidenav.open()">
+      Menu
+    </button>
+  </div>
+
+</md-sidenav-container>
+
+  </div>
+  <div fxFlex='10' >Welcome : {{name}}
+    <button md-raised-button color="accent" (click)="logout()" >    LogOut</button>
+  </div>
+</div>
+
+

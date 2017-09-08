@@ -1,0 +1,14 @@
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: left;
+    text-shadow: #f2f2f2;
+    background-color: #4CAF50;
+    color: white;
+}
+

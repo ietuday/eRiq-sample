@@ -1,0 +1,66 @@
+<div>
+
+      <form #form="ngForm">
+        <div>
+          <!-- Profile Image -->
+          <div>
+            <img class="img-circle" [attr.src]='file_srcs' alt="Select profile Image" />
+            <input type="file" name="profile_img" required (change)="fileChange(input)" #input />
+          </div>
+          <div >
+            <div>
+              <md-input-container fxFlex>
+                <input mdInput name="firstName" [disabled]="isLoading" [(ngModel)]="firstName" placeholder="First Name" required>
+              </md-input-container>
+              <md-input-container fxFlex>
+                <input mdInput name="lastName" [disabled]="isLoading" [(ngModel)]="lastName" placeholder="Last Name" required>
+              </md-input-container>
+            </div>
+            <div >
+              <md-input-container fxFlex>
+                <input mdInput name="email" type="email" [email]="true"  [disabled]="isLoading"
+                  [(ngModel)]="email" placeholder="Email" required>
+              </md-input-container>
+              <md-input-container fxFlex>
+                <input mdInput name="phone" type="number" [disabled]="isLoading" [(ngModel)]="phone" placeholder="Phone" required minlength="8">
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container fxFlex>
+                <input mdInput type="password" name="password" [disabled]="isLoading" [(ngModel)]="password" placeholder="Password"
+                  required minlength="8">
+                <md-hint *ngIf="password?.length <= 8 "  >Password sholud be minimum 8 characters</md-hint>
+              </md-input-container>
+              <md-input-container fxFlex>
+                <input mdInput type="password" name="confirmPassword" [disabled]="isLoading" [(ngModel)]="confirmPassword" placeholder="ConfirmPassword"
+                  required minlength="8">
+                <md-hint *ngIf="password !== confirmPassword" style="color:red">Passwords do not match</md-hint>
+              </md-input-container>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+           <md-select name="role" [disabled]="isLoading" [(ngModel)]="role" placeholder="Role" fxFlex required>
+            <md-option [value]="0"> Admin</md-option>
+          </md-select> 
+          
+          <md-slide-toggle fxFlexOffset="7" [disabled]="isLoading" name="isActive" [(ngModel)]="isActive" fxFlex>
+            Active
+          </md-slide-toggle>
+          
+        </div>
+
+
+
+      </form>
+
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.gt-md="row" class="input-row" fxLayoutGap="10px" style="margin-top: 5%;">
+          <button md-raised-button color="accent" fxFlex="10"   (click)="onSubmit()" >Create User </button>
+          <button md-raised-button [disabled]="isSubmitting" [routerLink]="['/users']" style="margin-top: 3%;">Cancel</button>
+        </div>
+    <!-- </md-card-content> -->
+
+  <!-- </md-card> -->
+</div>
